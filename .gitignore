@@ -1,15 +1,15 @@
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+/Client/npm-debug.log*
+/Client/yarn-debug.log*
+/Client/yarn-error.log*
+/Client/pnpm-debug.log*
+/Client/lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+/Client/node_modules
+/Client/dist
+/Client/dist-ssr
 *.local
 
 # Editor directories and files
@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+/node_modules
