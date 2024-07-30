@@ -1,0 +1,48 @@
+services:
+  client:
+    build: ./Client
+    container_name: client_c
+    image: client
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Client:/app
+      - /app/node_modules
+    networks:
+      - chatlet
+  server:
+    build: .
+    container_name: server_c
+    image: server
+    ports: 
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+    networks:
+      - chatlet 
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_c
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - chatlet
+    command: mongod --quiet --logpath /dev/null
+
+networks:
+  chatlet:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
+
+
+    

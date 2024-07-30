@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server --ignore Client",
-    "client": "cd Client && pnpm start",
-    "dev": "concurrently  --kill-others-on-fail \"pnpm run server\" \"pnpm run client\""
+    "server": "nodemon -L server --ignore Client",
+    "client": "cd Client && pnpm run dev",
+    "start": "concurrently  --kill-others-on-fail \"pnpm run server\" \"pnpm run client\""
   },
   "dependencies": {
     "concurrently": "^8.2.2",
