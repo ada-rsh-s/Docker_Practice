@@ -1,14 +1,15 @@
-import React from 'react'
-import "./App.css"
-import { Flex } from 'antd'
+import Fallback from './components/Fallback';
+import Login from './pages/Login';
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+
 const App = () => {
   return (
-    <Flex gap="middle" align="start" vertical>
-      <Flex className='test' justify="space-evenly" align="center">
-        <div>Pic</div>    
-        <div>Login</div> 
-      </Flex> 
-    </Flex>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+          <Route path='*' element={<Fallback/>} />
+      </Routes>
+    </BrowserRouter>
   );  
 }
 
